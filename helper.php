@@ -41,7 +41,8 @@ function get_baidu_nlp($APP_ID = '',$API_KEY = '',$SECRET_KEY = ''){
 	$API_KEY    = $API_KEY?:get_config("baidu_nlp_app_key");
 	$SECRET_KEY = $SECRET_KEY?:get_config("baidu_nlp_app_secret");
 	if(!$APP_ID || !$API_KEY || !$SECRET_KEY){
-		die("请正确配置 baidu_nlp_app_id  baidu_nlp_app_key  baidu_nlp_app_secret");
+		return json_error(['msg'=>'请正确配置 baidu_nlp_app_id  baidu_nlp_app_key  baidu_nlp_app_secret']);
+		exit;
 	}
 	$key = $APP_ID.$API_KEY;
 	if($baidu_nlp_init[$key]){
