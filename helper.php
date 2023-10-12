@@ -1,12 +1,6 @@
 <?php 
 /**
-* 识别收货地址
-* province 省
-* city     市
-* region   区
-* street   详细地址
-* mobile   手机号
-* name     姓名
+* 识别收货地址 
 */
 function get_baidu_nlp_address($address,$is_ori = false){
 	$client = get_baidu_nlp();  
@@ -31,7 +25,7 @@ function get_baidu_nlp_address($address,$is_ori = false){
 		$new['region'] = $res['county'];
 		$new['street'] = $res['detail'];
 		$new['mobile'] = $res['phonenum']; 
-		$new['name'] = $res['person']; 
+		$new['name'] = $res['person'];  
 		return $new;	
 	}else{
 		return;

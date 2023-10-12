@@ -28,6 +28,16 @@ $res = $client->address($text);
 ~~~
 get_baidu_nlp_address($address)
 ~~~
+
+|  字段   | 说明 |
+|  ----  | ----  |
+| province  | 省 |
+| city  | 市 |
+| region  | 区 |
+| street  | 详细地址 |
+| mobile  | 手机号 |
+| name  | 姓名 | 
+
  
 
 
