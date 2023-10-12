@@ -1,6 +1,8 @@
 <?php 
 
-
+/**
+* 初始化
+*/
 function get_baidu_nlp($APP_ID = '',$API_KEY = '',$SECRET_KEY = ''){
 	$APP_ID     = $APP_ID?:get_config("baidu_nlp_app_id");
 	$API_KEY    = $API_KEY?:get_config("baidu_nlp_app_key");
