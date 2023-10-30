@@ -2,7 +2,7 @@
 /**
 * 识别收货地址 
 */
-function get_baidu_nlp_address($address,$is_ori = false){
+function get_baidu_nlp_address($address,$replace_zhixia_city = true,$replace_province_shi = false){
 	$client = get_baidu_nlp();  
 	$res = $client->address($address); 
 	if($res['city']){
@@ -17,11 +17,17 @@ function get_baidu_nlp_address($address,$is_ori = false){
 			'上海市',
 			'重庆市',
 		];
+		$city = $res['city'];
 		if(in_array($province,$in)){
-			$province = str_replace("市","",$province);
+			if($replace_province_shi){
+				$province = str_replace("市","",$province);	
+			}
+			if($replace_zhixia_city){
+				$city = "市辖区";				
+			}			
 		}
 		$new['province'] = $province;
-		$new['city']   = $res['city'];
+		$new['city']   = $city;
 		$new['region'] = $res['county'];
 		$new['street'] = $res['detail'];
 		$new['mobile'] = $res['phonenum']; 
